@@ -1,7 +1,5 @@
 ﻿//Todo: 
-//Change trigger from anim to code
 //Move animator to Sprite gameobject and fix animations accordingly
-//1 bone
 
 
 using System.Collections;
@@ -25,6 +23,7 @@ public class Transition : MonoBehaviour
         if(trigger) { ps.Play(); trigger = false; }
         if(ps.isPlaying)
         {
+            Debug.Log("Triggered");
             ps.GetParticles(particles);
             for (int i = 0; i < particles.Length; i++)
             {
