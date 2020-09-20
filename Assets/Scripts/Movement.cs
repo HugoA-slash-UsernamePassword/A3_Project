@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Clockwise", 0, 2f / speed);
+        InvokeRepeating("Clockwise", 0, 2f / speed); //testing
     }
 
     // Update is called once per frame
