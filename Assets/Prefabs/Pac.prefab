@@ -98,6 +98,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   test: 0
   speed: 6
+  points:
+  - {x: 1, y: -1}
+  - {x: -1, y: -1}
+  - {x: -1, y: 1}
+  - {x: 1, y: 1}
 --- !u!95 &91178332897944701
 Animator:
   serializedVersion: 3
