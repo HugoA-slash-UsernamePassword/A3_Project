@@ -6,13 +6,14 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour
 {
     //public Tile[] palette;
-    //public Tilemap tileMap; //wait shit i dont need to do this in runtime
+    //public Tilemap tileMap; //unfinished; will implement later
     //public Grid grid;
-    public Sprite[] levelAssets;
+    public GameObject[] levelAssets;
+    private int[,] levelMap;
     // Start is called before the first frame update
     void Start()
     {
-        int[,] levelMap =
+        levelMap = new int[,]
         {
             {1,2,2,2,2,2,2,2,2,2,2,2,2,7},
             {2,5,5,5,5,5,5,5,5,5,5,5,5,4},
@@ -30,35 +31,77 @@ public class LevelGenerator : MonoBehaviour
             {2,2,2,2,2,1,5,3,3,0,4,0,0,0},
             {0,0,0,0,0,0,5,0,0,0,4,0,0,0}
         };
-        Debug.Log(levelMap.GetUpperBound(0));
-        Debug.Log(levelMap.GetUpperBound(1));
-        for (int y = 0; y < levelMap.GetUpperBound(0); y++)
+        int maxX = levelMap.GetUpperBound(1) + 1;
+        int maxY = levelMap.GetUpperBound(0) + 1;
+        for (int y = 0; y < maxY; y++)
         {
-            for (int x = 0; x < levelMap.GetUpperBound(1); x++)
+            for (int x = 0; x < maxX; x++)
             {
                 int tileData = levelMap[y, x];
-                Vector3Int pos = new Vector3Int(x - 8, 8 - y, 0);
+                Vector2Int pos = new Vector2Int(x, y);
+                bool[] near = new bool[] { IsWall(pos, 0, -1), IsWall(pos, 1, 0), IsWall(pos, 0, 1), IsWall(pos, -1, 0) };
+                int rot = 0;
                 if (tileData == 0) continue;
                 else if (tileData < 5)
                 {
-                    //tileMap.SetTile(pos, palette[tileData - 1]);
-                    //Tile tile = tileMap.GetTile(pos) as Tile;
-                    int rot = 0;
-
-                    if (tileData % 2 == 0)
-                    {
-                        if (levelMap[y + (y + 1 == levelMap.GetUpperBound(0) ? y + 1 : y - 1), x] % 5 == 0)
-                        {
-
-                        }
-                    }
-                    Instantiate(levelAssets[0], pos, Quaternion.identity);
-
+                    rot = RotateTile(near, tileData);
                 }
+                //Tilemap (unfinished)
+                //tileMap.SetTile(pos, palette[tileData - 1]); 
+                //Tile tile = tileMap.GetTile(pos) as Tile;
+
+                //Prefab
+                Instantiate(levelAssets[tileData - 1], new Vector3(x - maxX, maxY - y - 1), Quaternion.AngleAxis(rot, Vector3.forward));
+                Instantiate(levelAssets[tileData - 1], new Vector3(x - maxX, y - maxY), Quaternion.AngleAxis(tileData % 2 == 0 ? rot : 90 - rot, Vector3.forward));
+                Instantiate(levelAssets[tileData - 1], new Vector3(maxX - x - 1, maxY - y - 1), Quaternion.AngleAxis(tileData % 2 == 0 ? rot : 270 - rot, Vector3.forward));
+                Instantiate(levelAssets[tileData - 1], new Vector3(maxX - x - 1, y - maxY), Quaternion.AngleAxis(tileData % 2 == 0 ? rot : 180 + rot, Vector3.forward));
             }
         }
     }
-
+    private bool IsWall(Vector2Int p, int checkX, int checkY)
+    {
+        Vector2Int p2 = new Vector2Int(p.x + checkX, p.y + checkY);
+        if (p2.x < levelMap.GetUpperBound(1) && p2.x >= 0 && p2.y < levelMap.GetUpperBound(0) && p2.y >= 0)
+        {
+            if (levelMap[p2.y, p2.x] % 5 == 0 || levelMap[p2.y, p2.x] == 6) return false;
+        }
+        else return false;
+        return true;
+    }
+    private int RotateTile(bool[] near, int tileData)
+    {
+        if (tileData % 2 == 0)
+        {
+            if (near[0] && near[2])
+            {
+                return 90;
+            }
+            else if (near[1] && near[3])
+            {
+                return 0;
+            }
+            else if ((near[0] || near[2]) && !(near[1] || near[3]))
+            {
+                return 90;
+            }
+        }
+        else
+        {
+            if (near[0] && near[1])
+            {
+                return 90;
+            }
+            if (near[2] && near[3])
+            {
+                return 270;
+            }
+            if (near[3] && near[0])
+            {
+                return 180;
+            }            
+        }
+        return 0;
+    }
     // Update is called once per frame
     void Update()
     {

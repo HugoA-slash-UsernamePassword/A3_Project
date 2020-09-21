@@ -137,6 +137,15 @@ TextureImporter:
   - first:
       213: -3436030489239654406
     second: Pac_22
+  - first:
+      213: 4630470821439590669
+    second: Pac_22
+  - first:
+      213: -335962056202536650
+    second: Pac_23
+  - first:
+      213: 2364660019739919273
+    second: Pac_24
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -709,8 +718,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aff65739974c050d0800000000000000
-      internalID: -3436030489239654406
+      spriteID: d01d7b6cdacb24040800000000000000
+      internalID: 4630470821439590669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pac_23
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 639b9063a4c665bf0800000000000000
+      internalID: -335962056202536650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pac_24
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a38a2b62c5f0d020800000000000000
+      internalID: 2364660019739919273
       vertices: []
       indices: 
       edges: []
