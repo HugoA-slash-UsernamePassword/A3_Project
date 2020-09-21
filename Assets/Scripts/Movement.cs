@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
     {
         //InvokeRepeating("Clockwise", 0, 2f / speed); //testing
         path = new SimpleTween(transform.position, points[0], Time.time, 1);
-        transform.Rotate(transform.forward, -90);
+        transform.Rotate(transform.forward, 90);
     }
 
     // Update is called once per frame
