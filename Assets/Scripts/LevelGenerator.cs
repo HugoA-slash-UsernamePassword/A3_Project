@@ -33,41 +33,37 @@ public class LevelGenerator : MonoBehaviour
         {
             for (int x = 0; x < maxX; x++)
             {
-                int tileData = levelMap[y, x];
-                Vector2Int pos = new Vector2Int(x, y);
-                bool[] near = new bool[] { IsWall(pos, 0, -1), IsWall(pos, 1, 0), IsWall(pos, 0, 1), IsWall(pos, -1, 0) };
+                int tileData = levelMap[y, x]; //current tile ID
+                Vector2Int pos = new Vector2Int(x, y); //current xy position
+                bool[] near = new bool[] { IsWall(pos, 0, -1), IsWall(pos, 1, 0), IsWall(pos, 0, 1), IsWall(pos, -1, 0) }; //list of nearby walls
                 int rot = 0;
-                bool hWall = (tileData == 2 || tileData == 4 || tileData == 7); //can simplify later
+                bool isWall = (tileData == 2 || tileData == 4 || tileData == 7); //can simplify later
                 int vOffset = 0;
-                if (tileData == 0) continue;
-                else if (tileData < 5)
+                if (tileData == 0) continue; //empty space
+                else if (tileData < 5) //if its not a pellet etc.
                 {
-                    rot = RotateTile(near, tileData, hWall, pos);
-                    if (hWall)
+                    if (isWall)
                     {
-                        if (near[0] && near[2])
+                        if (near[0] && near[2]) //vertical
                         {
                             rot = 90;
                             vOffset = 180;
                         }
-                        else if (near[1] && near[3])
+                        else if (near[1] && near[3]) //horizontal
                         {
-                            rot = (!Edge(pos) && tileData == 2 && y != maxY - 2) ? 180 : 0; //bit of a sketchy solution. i'll update here if i figure something out
+                            rot = (!Edge(pos) && tileData == 2 && y != maxY - 2) ? 180 : 0; //outside walls that are not on the map edge.
                         }
-                        else if ((near[0] || near[2]) && !(near[1] || near[3]))
+                        else if ((near[0] || near[2]) && !(near[1] || near[3])) //inside walls on the map edge
                             rot = 90;
                     }
-                    else
+                    else //corners
                     {
-                        if (!Edge(pos) && tileData == 1) tileData = 8;
-                        if(near[0] && near[1] && near[2] && near[3])
+                        if (!Edge(pos) && tileData == 1) tileData = 8; //outside corners that are not on the map edge. 
+                        if(near[0] && near[1] && near[2] && near[3]) //e.g. in a T-shape
                         {
-                            near = new bool[] { IsWall(pos, 1, -1), IsWall(pos, 1, 1), IsWall(pos, -1, 1), IsWall(pos, -1, -1) };
-                            //if(IsWall(pos))
-                            //for (int i = 0; i < near.Length; i++)
-                            //{
+                            near = new bool[] { IsWall(pos, 1, -1), IsWall(pos, 1, 1), IsWall(pos, -1, 1), IsWall(pos, -1, -1) }; //find an empty space
 
-                            //}
+                            //point towards that empty space
                             if (!near[0])
                                 rot = 90;
                             else if (!near[1])
@@ -91,11 +87,11 @@ public class LevelGenerator : MonoBehaviour
 
                 if (y != maxY - 1)
                 {
-                    Instantiate(levelAssets[tileData - 1], new Vector3(x - maxX, maxY - y - 2), Quaternion.AngleAxis(rot, Vector3.forward));
-                    Instantiate(levelAssets[tileData - 1], new Vector3(maxX - x - 1, maxY - y - 2), Quaternion.AngleAxis(hWall ? rot + vOffset : 270 - rot, Vector3.forward));
+                    Instantiate(levelAssets[tileData - 1], new Vector3(x - maxX, maxY - y - 2), Quaternion.AngleAxis(rot, Vector3.forward)); //top left aka normal
+                    Instantiate(levelAssets[tileData - 1], new Vector3(maxX - x - 1, maxY - y - 2), Quaternion.AngleAxis(isWall ? rot + vOffset : 270 - rot, Vector3.forward)); //top right
                 }
-                Instantiate(levelAssets[tileData - 1], new Vector3(x - maxX, y - maxY), Quaternion.AngleAxis(hWall ? 180 + rot + vOffset : 90 - rot, Vector3.forward));
-                Instantiate(levelAssets[tileData - 1], new Vector3(maxX - x - 1, y - maxY), Quaternion.AngleAxis(hWall ? 180 + rot : 180 + rot, Vector3.forward));
+                Instantiate(levelAssets[tileData - 1], new Vector3(x - maxX, y - maxY), Quaternion.AngleAxis(isWall ? 180 + rot + vOffset : 90 - rot, Vector3.forward)); //bottom left
+                Instantiate(levelAssets[tileData - 1], new Vector3(maxX - x - 1, y - maxY), Quaternion.AngleAxis(180 + rot, Vector3.forward)); //bottom right
             }
         }
     }
@@ -116,31 +112,6 @@ public class LevelGenerator : MonoBehaviour
             return true;
         }
         else return false;
-    }
-    private int RotateTile(bool[] near, int tileData, bool isWall, Vector2Int pos)
-    {
-        if (isWall)
-        {
-            if (near[0] && near[2])
-                return 90;
-            else if (near[1] && near[3])
-                return 0;
-            else if ((near[0] || near[2]) && !(near[1] || near[3]))
-                return 90;
-        }
-        else
-        {
-            if (near[0] && near[1])
-                return 90;
-            else if (near[1] && near[2])
-                return 0;
-            else if (near[2] && near[3])
-                return 270;
-            else if (near[3] && near[0])
-                return 180;
-            else return 90;
-        }
-        return 0;
     }
     // Update is called once per frame
     void Update()

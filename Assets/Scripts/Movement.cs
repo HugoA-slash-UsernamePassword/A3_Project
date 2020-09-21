@@ -9,7 +9,6 @@ public class Movement : MonoBehaviour
     public Vector2[] points;
     public int curPoint;
     private SimpleTween path;
-    // Start is called before the first frame update
     void Start()
     {
         //InvokeRepeating("Clockwise", 0, 2f / speed); //testing
@@ -37,13 +36,16 @@ public class Movement : MonoBehaviour
         //transform.position = transform.position + (speed * Time.deltaTime * transform.right);
     }
 
-    void Clockwise()
-    {
-        transform.Rotate(transform.forward, -90);
-    }
-    //void Move(Vector2 dir)
+    //void Clockwise() //testing
     //{
-    //    //anims
-    //    this.dir = dir;
+    //    transform.Rotate(transform.forward, -90);
     //}
+
+    void Move(Vector2 dir)
+    {
+        //anims
+
+        //movement
+        //this.dir = dir;
+    }
 }

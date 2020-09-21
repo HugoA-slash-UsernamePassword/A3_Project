@@ -17,7 +17,7 @@ public class Fadein : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!intro.isPlaying) //bit of a hacky solution but it works for now
+        if(!intro.isPlaying) //bit of a hacky solution but it works for now.
         {
             Instantiate(player);
             foreach (GameObject item in ghosts)

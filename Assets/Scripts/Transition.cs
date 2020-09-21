@@ -33,17 +33,15 @@ public class Transition : MonoBehaviour
             ps.GetParticles(particles);
             for (int i = 0; i < ps.particleCount; i++)
             {
-                //particles[i].position = Vector3.Lerp(particles[i].position, transform.position, particles[i].velocity.magnitude);
-                if(Vector3.Distance(particles[i].position, transform.position) > 0.1f)
-                particles[i].position = Vector2.Lerp(particles[i].position, transform.position, (1 + (particles[i].remainingLifetime/particles[i].startLifetime * 3)) * Time.deltaTime);
-                //particles[i].position = Vector3.Lerp(particles[i].position, transform.position, 0.1f * Time.deltaTime);
+                if(Vector3.Distance(particles[i].position, transform.position) > 0.1f) //if not touching me
+                particles[i].position = Vector2.Lerp(particles[i].position, transform.position, (1 + (particles[i].remainingLifetime/particles[i].startLifetime * 3)) * Time.deltaTime); //move towards me
             }
-            Debug.Log(particles.Length);
-            ps.SetParticles(particles, ps.particleCount);
+            ps.SetParticles(particles, ps.particleCount); //update particles
         }        
     }
     private void LateUpdate()
     {
+        //animations
         anim.SetFloat("X", xDir);
         anim.SetFloat("Y", yDir);
     }
