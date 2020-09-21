@@ -146,6 +146,15 @@ TextureImporter:
   - first:
       213: 2364660019739919273
     second: Pac_24
+  - first:
+      213: 7291357330926749487
+    second: Pac_23
+  - first:
+      213: 2825121976584838171
+    second: Pac_24
+  - first:
+      213: 6213080948493317170
+    second: Pac_25
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -246,7 +255,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
+        y: 69
         width: 16
         height: 16
       alignment: 0
@@ -266,8 +275,8 @@ TextureImporter:
       name: Pac_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 64
+        x: 17
+        y: 69
         width: 16
         height: 16
       alignment: 0
@@ -287,8 +296,8 @@ TextureImporter:
       name: Pac_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 64
+        x: 34
+        y: 69
         width: 16
         height: 16
       alignment: 0
@@ -308,8 +317,8 @@ TextureImporter:
       name: Pac_3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 64
+        x: 51
+        y: 69
         width: 16
         height: 16
       alignment: 0
@@ -329,8 +338,8 @@ TextureImporter:
       name: Pac_4
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
+        x: 68
+        y: 69
         width: 16
         height: 16
       alignment: 0
@@ -351,7 +360,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 48
+        y: 52
         width: 16
         height: 16
       alignment: 0
@@ -371,8 +380,8 @@ TextureImporter:
       name: Pac_6
       rect:
         serializedVersion: 2
-        x: 16
-        y: 48
+        x: 17
+        y: 52
         width: 16
         height: 16
       alignment: 0
@@ -392,8 +401,8 @@ TextureImporter:
       name: Pac_7
       rect:
         serializedVersion: 2
-        x: 32
-        y: 48
+        x: 34
+        y: 52
         width: 16
         height: 16
       alignment: 0
@@ -413,8 +422,8 @@ TextureImporter:
       name: Pac_8
       rect:
         serializedVersion: 2
-        x: 48
-        y: 48
+        x: 51
+        y: 52
         width: 16
         height: 16
       alignment: 0
@@ -434,8 +443,8 @@ TextureImporter:
       name: Pac_9
       rect:
         serializedVersion: 2
-        x: 64
-        y: 48
+        x: 68
+        y: 52
         width: 16
         height: 16
       alignment: 0
@@ -456,7 +465,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
+        y: 35
         width: 16
         height: 16
       alignment: 0
@@ -476,8 +485,8 @@ TextureImporter:
       name: Pac_11
       rect:
         serializedVersion: 2
-        x: 16
-        y: 32
+        x: 17
+        y: 35
         width: 16
         height: 16
       alignment: 0
@@ -497,8 +506,8 @@ TextureImporter:
       name: Pac_12
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
+        x: 34
+        y: 35
         width: 16
         height: 16
       alignment: 0
@@ -518,8 +527,8 @@ TextureImporter:
       name: Pac_13
       rect:
         serializedVersion: 2
-        x: 48
-        y: 32
+        x: 51
+        y: 35
         width: 16
         height: 16
       alignment: 0
@@ -539,8 +548,8 @@ TextureImporter:
       name: Pac_14
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
+        x: 68
+        y: 35
         width: 16
         height: 16
       alignment: 0
@@ -561,7 +570,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
+        y: 18
         width: 16
         height: 16
       alignment: 0
@@ -581,8 +590,8 @@ TextureImporter:
       name: Pac_16
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
+        x: 17
+        y: 18
         width: 16
         height: 16
       alignment: 0
@@ -602,8 +611,8 @@ TextureImporter:
       name: Pac_17
       rect:
         serializedVersion: 2
-        x: 32
-        y: 16
+        x: 34
+        y: 18
         width: 16
         height: 16
       alignment: 0
@@ -623,8 +632,8 @@ TextureImporter:
       name: Pac_18
       rect:
         serializedVersion: 2
-        x: 48
-        y: 16
+        x: 51
+        y: 18
         width: 16
         height: 16
       alignment: 0
@@ -644,8 +653,8 @@ TextureImporter:
       name: Pac_19
       rect:
         serializedVersion: 2
-        x: 64
-        y: 16
+        x: 68
+        y: 18
         width: 16
         height: 16
       alignment: 0
@@ -666,7 +675,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 1
         width: 16
         height: 16
       alignment: 0
@@ -686,8 +695,8 @@ TextureImporter:
       name: Pac_21
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
+        x: 17
+        y: 1
         width: 16
         height: 16
       alignment: 0
@@ -707,8 +716,8 @@ TextureImporter:
       name: Pac_22
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 34
+        y: 1
         width: 16
         height: 16
       alignment: 0
@@ -728,8 +737,8 @@ TextureImporter:
       name: Pac_23
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
+        x: 51
+        y: 1
         width: 16
         height: 16
       alignment: 0
@@ -739,8 +748,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 639b9063a4c665bf0800000000000000
-      internalID: -335962056202536650
+      spriteID: f2744587cda103560800000000000000
+      internalID: 7291357330926749487
       vertices: []
       indices: 
       edges: []
@@ -749,8 +758,8 @@ TextureImporter:
       name: Pac_24
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 68
+        y: 1
         width: 16
         height: 16
       alignment: 0
@@ -760,8 +769,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a38a2b62c5f0d020800000000000000
-      internalID: 2364660019739919273
+      spriteID: b1c1d753879d43720800000000000000
+      internalID: 2825121976584838171
       vertices: []
       indices: 
       edges: []
