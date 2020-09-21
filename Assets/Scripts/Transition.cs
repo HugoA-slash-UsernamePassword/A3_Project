@@ -35,11 +35,12 @@ public class Transition : MonoBehaviour
             {
                 //particles[i].position = Vector3.Lerp(particles[i].position, transform.position, particles[i].velocity.magnitude);
                 if(Vector3.Distance(particles[i].position, transform.position) > 0.1f)
-                particles[i].position = Vector2.Lerp(particles[i].position, transform.position, (1 + (particles[i].remainingLifetime/particles[i].startLifetime * 2)) * Time.deltaTime);
+                particles[i].position = Vector2.Lerp(particles[i].position, transform.position, (1 + (particles[i].remainingLifetime/particles[i].startLifetime * 3)) * Time.deltaTime);
                 //particles[i].position = Vector3.Lerp(particles[i].position, transform.position, 0.1f * Time.deltaTime);
             }
-            ps.SetParticles(particles, particles.Length);
-        }
+            Debug.Log(particles.Length);
+            ps.SetParticles(particles, ps.particleCount);
+        }        
     }
     private void LateUpdate()
     {
@@ -66,7 +67,15 @@ public class Transition : MonoBehaviour
                 xDir = 0;
                 yDir = 1;
                 break;
+            case testCases.upagain:
+                xDir = 0;
+                yDir = 1;
+                break;
             case testCases.right:
+                xDir = 1;
+                yDir = 0;
+                break;
+            case testCases.rightagain:
                 xDir = 1;
                 yDir = 0;
                 break;
@@ -105,6 +114,8 @@ public class Transition : MonoBehaviour
         down,
         scared,
         notscared,
+        rightagain,
+        upagain,
         scaredagain,
         dead,
         notdead,

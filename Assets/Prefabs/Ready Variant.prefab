@@ -75,7 +75,7 @@ PrefabInstance:
     - target: {fileID: 2778917912271425895, guid: 5231d1087b805d24a8e47aedaf051fab,
         type: 3}
       propertyPath: m_Name
-      value: Ready
+      value: Ready Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2778917912271425899, guid: 5231d1087b805d24a8e47aedaf051fab,
         type: 3}
@@ -85,7 +85,7 @@ PrefabInstance:
     - target: {fileID: 2778917912271425899, guid: 5231d1087b805d24a8e47aedaf051fab,
         type: 3}
       propertyPath: testCase
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2778917912814520697, guid: 5231d1087b805d24a8e47aedaf051fab,
         type: 3}

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Fadein : MonoBehaviour
 {
     public AudioSource intro;
+    public AudioSource nonintro;
     public GameObject player;
     public GameObject[] ghosts;
     // Start is called before the first frame update
@@ -23,6 +24,7 @@ public class Fadein : MonoBehaviour
             {
                 Instantiate(item);
             }
+            nonintro.Play();
             Destroy(gameObject);
         }
     }
