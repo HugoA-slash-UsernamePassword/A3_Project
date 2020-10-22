@@ -21,7 +21,7 @@ public class Transition : MonoBehaviour
     void Start()
     {
         ps = GetComponent<ParticleSystem>();
-        InvokeRepeating("test", 3, 3);
+        //InvokeRepeating("test", 3, 3);
     }
 
     // Update is called once per frame
